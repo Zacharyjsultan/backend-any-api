@@ -26,7 +26,7 @@ CREATE TABLE president (
     name VARCHAR,
     party VARCHAR,
     number INT,
-    region VARCHAR
+    country VARCHAR
 );
 
 INSERT INTO president (name, party, number, country)
