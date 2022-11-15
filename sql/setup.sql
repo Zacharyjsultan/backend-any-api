@@ -18,3 +18,21 @@ VALUES
 ('Alf', 'Cocateau', 'Mike', 5, FALSE),
 ('Poppy', 'border collie', 'Meatball', 4, TRUE),
 ('McFarland', 'Pug', 'KFC', 22, TRUE);
+
+DROP TABLE IF EXISTS president;
+
+CREATE TABLE president (
+    id BIGINT GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR,
+    party VARCHAR,
+    number INT,
+    region VARCHAR
+);
+
+INSERT INTO president (name, party, number, country)
+VALUES
+('George', 'republican', 1, 'US'),
+('Jeff', 'republican', 2, 'US'),
+('Zachary', 'republican', 13, 'US'),
+('Barack', 'republican', 44, 'US'), 
+('Donald', 'time', 45, 'MarALago');
