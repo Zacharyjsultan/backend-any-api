@@ -1,16 +1,21 @@
 const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
-// const request = require('supertest');
-// const app = require('../lib/app');
+const app = require('../lib/app');
+const request = require('supertest');
+const { pets } = require('../lib/pets-data');
 
-describe('backend-express-template routes', () => {
+describe('past pet route', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('example test - delete me!', () => {
-    expect(1).toEqual(1);
+  it('/pets should return list of pastpet', async () => {
+    const res = await request(app).get('/pets');
+    const expected = pets.map((pet) => {
+      return { id: pet.id, name: pet.name };
+    });
+    expect(res.body).toEqual(expected);
   });
-  afterAll(() => {
-    pool.end();
-  });
+});
+afterAll(() => {
+  pool.end();
 });
