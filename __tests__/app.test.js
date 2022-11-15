@@ -15,7 +15,19 @@ describe('past pet route', () => {
     });
     expect(res.body).toEqual(expected);
   });
-});
-afterAll(() => {
-  pool.end();
+  it('/pets/:id  route', async () => {
+    const res = await request(app).get('/pets/1');
+    const expected = {
+      id: '1',
+      name: 'KimChi',
+      animal: 'Mastiff',
+      nickname: 'Kim',
+      age: 9,
+      smells: true,
+    };
+    expect(res.body).toEqual(expected);
+  });
+  afterAll(() => {
+    pool.end();
+  });
 });
